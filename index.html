@@ -587,6 +587,39 @@
                 gap: 20px;
             }
         }
+    
+        /* Work grid for portfolio images and video */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .work-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+        }
+        .work-item img, .work-item video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .work-item h4 {
+            color: #667eea;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
     </style>
 </head>
 <body>
@@ -752,23 +785,40 @@
         </div>
     </section>
     
-    <!-- New My Work section placeholder -->
+    <!-- My Work section with portfolio content -->
     <section class="section" id="work">
         <div class="container">
             <h2 class="section-title">My Work</h2>
-            <p style="font-size: 1.2em; color: #b0b0b0; text-align: center; max-width: 700px; margin: 0 auto 40px;">This section will showcase a curated selection of my projects and achievements. Images and detailed descriptions will be added here soon.</p>
-            <!-- Placeholder grid for future work images -->
-            <div class="skills-grid">
-                <div class="skill-card" style="text-align: center;">
-                    <p style="color: #808080;">Coming soon...</p>
+            <p style="font-size: 1.2em; color: #b0b0b0; text-align: center; max-width: 700px; margin: 0 auto 40px;">Here are some highlights from my promotional campaigns and in-store activations.</p>
+            <div class="work-grid">
+                <div class="work-item">
+                    <img src="work1.png" alt="Promotional event photo 1">
+                    <h4>Engaging with customers during a promotional event</h4>
                 </div>
-                <div class="skill-card" style="text-align: center;">
-                    <p style="color: #808080;">Your portfolio pieces will appear here.</p>
+                <div class="work-item">
+                    <img src="work2.png" alt="Promotional event photo 2">
+                    <h4>Showcasing products at a retail activation</h4>
+                </div>
+                <div class="work-item">
+                    <img src="work3.png" alt="Promotional event photo 3">
+                    <h4>Demonstrating product features to store staff</h4>
+                </div>
+                <div class="work-item">
+                    <img src="work4.png" alt="Promotional event photo 4">
+                    <h4>Setting up engaging displays for customers</h4>
+                </div>
+                <div class="work-item">
+                    <video controls>
+                        <source src="work_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h4>Interactive product demonstration video</h4>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Contact Section begins -->
     <section class="section" id="contact" style="min-height: 60vh;">
         <div class="container" style="text-align: center;">
             <h2 class="section-title">Let's Connect</h2>
