@@ -763,7 +763,7 @@
         } else { startTerm(); }
 
         /* Gallery filters */
-        $('.filter-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.classList.contains('active') ? 'true' : 'false'); });
+        $$('.filter-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.classList.contains('active') ? 'true' : 'false'); });
         var shots = $$('.shot');
         $$('.filter-btn').forEach(function (b) {
             b.addEventListener('click', function () {
