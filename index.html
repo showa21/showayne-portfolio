@@ -145,6 +145,13 @@
         .proj-links a:hover { color: var(--accent-3); }
         .proj-more { text-align: center; margin-top: 38px; }
 
+        .project-screenshots { margin-top: 8px; }
+        .project-screenshots summary { cursor: pointer; color: var(--accent-3); font-weight: 600; padding: 10px 0; }
+        .screenshot-note { font-size: .8rem !important; margin: 4px 0 12px; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+        .project-shot { display: block; min-width: 0; cursor: zoom-in; color: var(--muted); font-size: .72rem; line-height: 1.4; }
+        .project-shot img { width: 100%; height: 110px; object-fit: cover; object-position: top; border: 1px solid var(--line); border-radius: 8px; display: block; margin-bottom: 6px; }
+
         /* Skills */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
         .skills-grid h3 { font-size: 1.15rem; margin-bottom: 16px; }
@@ -544,7 +551,7 @@
         <div class="container">
             <div class="kicker reveal">Digital projects</div>
             <h2 class="title reveal">Selected <span class="grad">Web Projects</span></h2>
-            <p class="sub reveal">A few website templates I've created, from interactive learning pages for children to a branded storefront-style page. Open any template to see it live.</p>
+            <p class="sub reveal">From a daily menu maker for a food business to learning experiences and branded web pages: practical digital projects that combine marketing and technology. View the Limitless Marketing client project screenshots below.</p>
             <div class="proj-grid">
                 <div class="card proj reveal">
                     <span class="proj-tag">Template</span>
@@ -554,11 +561,19 @@
                     <div class="proj-links"><a href="https://showa21.github.io/toddler-learning-website/" target="_blank" rel="noopener">View live project ↗</a></div>
                 </div>
                 <div class="card proj reveal">
-                    <span class="proj-tag">Template</span>
-                    <h3>Learning Adventure Zone</h3>
-                    <p>A learning-adventure website designed for six-year-olds.</p>
-                    <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/Learning-Adventure-for-six-years-old/" target="_blank" rel="noopener">View live project ↗</a></div>
+                    <span class="proj-tag">Limitless Marketing Tool</span>
+                    <h3>Hot &amp; Spicy Menu Maker</h3>
+                    <p>A custom tool created for Hot &amp; Spicy On Wheels to manage daily dishes, mark items sold out and generate branded menu images for WhatsApp. Explore screenshots of the interface and a sample output.</p>
+                    <div class="tags"><span class="tag">JavaScript</span><span class="tag">Menu Design</span><span class="tag">Business Tools</span></div>
+                    <details class="project-screenshots">
+                        <summary>View screenshots (3)</summary>
+                        <p class="screenshot-note">Client project showcase · Screenshots only</p>
+                        <div class="screenshot-grid">
+                            <a class="project-shot" href="assets/menu-maker/desktop.png"><img src="assets/menu-maker/desktop.png" alt="Desktop Menu Maker interface with editable dishes and a live menu preview" loading="lazy"><span>Desktop interface</span></a>
+                            <a class="project-shot" href="assets/menu-maker/mobile.png"><img src="assets/menu-maker/mobile.png" alt="Menu Maker interface arranged for a mobile screen" loading="lazy"><span>Mobile interface</span></a>
+                            <a class="project-shot" href="assets/menu-maker/sample-menu.png"><img src="assets/menu-maker/sample-menu.png" alt="Example of the branded daily menu image produced for Hot and Spicy On Wheels" loading="lazy"><span>Sample menu output</span></a>
+                        </div>
+                    </details>
                 </div>
                 <div class="card proj reveal">
                     <span class="proj-tag">Template</span>
@@ -802,17 +817,22 @@
 
         /* Lightbox */
         var lb = $('#lb'), lbImg = $('#lbImg'), lbCap = $('#lbCap'), idx = 0, lastFocus = null;
-        function visible() { return shots.filter(function (s) { return !s.classList.contains('hidden'); }); }
+        var viewerShots = shots;
+        function visible() { return viewerShots.filter(function (s) { return !s.classList.contains('hidden'); }); }
         function show(i) {
             var v = visible(); if (!v.length) return;
             idx = (i + v.length) % v.length;
             var im = $('img', v[idx]); lbImg.src = im.src; lbImg.alt = im.alt; lbCap.textContent = im.alt;
         }
-        function openLb(s) { lastFocus = document.activeElement; show(visible().indexOf(s)); lb.classList.add('open'); document.body.style.overflow = 'hidden'; $('#lbX').focus(); }
+        function openLb(s, group) { viewerShots = group || shots; lastFocus = document.activeElement; show(visible().indexOf(s)); lb.classList.add('open'); document.body.style.overflow = 'hidden'; $('#lbX').focus(); }
         function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
         shots.forEach(function (s) {
             s.addEventListener('click', function () { openLb(s); });
             s.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(s); } });
+        });
+        var projectShots = $$('.project-shot');
+        projectShots.forEach(function (s) {
+            s.addEventListener('click', function (e) { e.preventDefault(); openLb(s, projectShots); });
         });
         $('#lbX').addEventListener('click', closeLb);
         $('#lbP').addEventListener('click', function () { show(idx - 1); });
@@ -821,7 +841,7 @@
         document.addEventListener('keydown', function (e) {
             if (!lb.classList.contains('open')) return;
             if (e.key === 'Tab') {
-                var buttons = $('button', lb), first = buttons[0], last = buttons[buttons.length - 1];
+                var buttons = $$('button', lb), first = buttons[0], last = buttons[buttons.length - 1];
                 if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
                 else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
             }
