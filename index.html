@@ -551,14 +551,22 @@
         <div class="container">
             <div class="kicker reveal">Digital projects</div>
             <h2 class="title reveal">Selected <span class="grad">Web Projects</span></h2>
-            <p class="sub reveal">From a daily menu maker for a food business to learning experiences and branded web pages: practical digital projects that combine marketing and technology. View the Limitless Marketing client project screenshots below.</p>
+            <p class="sub reveal">From a daily menu maker for a food business to learning experiences and branded web pages: practical digital projects that combine marketing and technology. Explore each project through its screenshot gallery below.</p>
             <div class="proj-grid">
                 <div class="card proj reveal">
                     <span class="proj-tag">Template</span>
                     <h3>Toddler Learning Fun</h3>
                     <p>An interactive learning website for toddlers, covering shapes, colors, numbers, animals, letters and emotions.</p>
                     <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/toddler-learning-website/" target="_blank" rel="noopener">View live project ↗</a></div>
+                    <details class="project-screenshots">
+                        <summary>View screenshots (3)</summary>
+                        <p class="screenshot-note">Project showcase · Screenshots only</p>
+                        <div class="screenshot-grid">
+                            <a class="project-shot" href="assets/toddler/home.png"><img src="assets/toddler/home.png" alt="Toddler Learning Fun main menu with six colourful learning categories" loading="lazy"><span>Learning menu</span></a>
+                            <a class="project-shot" href="assets/toddler/shapes.png"><img src="assets/toddler/shapes.png" alt="Toddler Learning Fun shapes activity with circle, square, triangle, star and heart" loading="lazy"><span>Shapes activity</span></a>
+                            <a class="project-shot" href="assets/toddler/colors.png"><img src="assets/toddler/colors.png" alt="Toddler Learning Fun colour recognition activity" loading="lazy"><span>Colours activity</span></a>
+                        </div>
+                    </details>
                 </div>
                 <div class="card proj reveal">
                     <span class="proj-tag">Limitless Marketing Tool</span>
@@ -580,7 +588,14 @@
                     <h3>Locay Tees</h3>
                     <p>A branded web page for Locay Tees, built around the "Rep Your Parish!" idea.</p>
                     <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/LocayTees/" target="_blank" rel="noopener">View live project ↗</a></div>
+                    <details class="project-screenshots">
+                        <summary>View screenshots (2)</summary>
+                        <p class="screenshot-note">Project showcase · Screenshots only</p>
+                        <div class="screenshot-grid">
+                            <a class="project-shot" href="assets/locay-tees/home.png"><img src="assets/locay-tees/home.png" alt="Locay Tees landing page with Rep Your Parish branding" loading="lazy"><span>Brand landing page</span></a>
+                            <a class="project-shot" href="assets/locay-tees/challenge.png"><img src="assets/locay-tees/challenge.png" alt="Locay Tees fourteen parish challenge presentation" loading="lazy"><span>Parish challenge</span></a>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
@@ -832,7 +847,7 @@
         });
         var projectShots = $$('.project-shot');
         projectShots.forEach(function (s) {
-            s.addEventListener('click', function (e) { e.preventDefault(); openLb(s, projectShots); });
+            s.addEventListener('click', function (e) { e.preventDefault(); openLb(s, $$('.project-shot', s.closest('.project-screenshots'))); });
         });
         $('#lbX').addEventListener('click', closeLb);
         $('#lbP').addEventListener('click', function () { show(idx - 1); });
