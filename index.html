@@ -191,7 +191,14 @@
         .shot:hover img { transform: scale(1.06); }
         .shot figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 46px 14px 14px; background: linear-gradient(transparent, rgba(4, 7, 16, .92)); font-size: .88rem; line-height: 1.35; }
         .shot .tag-l { display: block; color: var(--accent-3); font-family: var(--mono); font-size: .7rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
-        .video-box { max-width: 420px; margin: 56px auto 0; text-align: center; }
+        .video-grid { max-width: 920px; margin: 56px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start; }
+        .video-box { min-width: 0; text-align: left; }
+        .video-copy { min-height: 160px; }
+        .video-box video { display: block; aspect-ratio: 9 / 16; object-fit: contain; background: #050810; }
+        @media (max-width: 700px) {
+            .video-grid { grid-template-columns: 1fr; max-width: 420px; gap: 40px; }
+            .video-copy { min-height: 0; }
+        }
         .video-box h3 { margin-bottom: 14px; font-size: 1.15rem; }
         .video-description { margin: 0 0 20px; color: var(--muted); font-size: .95rem; }
         .video-box video { width: 100%; border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(0, 0, 0, .45); }
@@ -501,10 +508,21 @@
                 <figure class="shot" data-cat="activation" tabindex="0"><img src="work-activation-3.jpg" alt="Play-and-win promotion with a customer" loading="lazy"><figcaption><span class="tag-l">Activation &amp; Display</span>Play-and-win promotion with a customer</figcaption></figure>
             </div>
 
-            <div class="video-box reveal">
-                <h3>LG Retail Merchandising &amp; Display Installation</h3>
-                <p class="video-description" id="installation-description">A look at my hands-on trade marketing work: installing point-of-purchase materials and preparing LG displays across TVs, air conditioners, refrigerators and washing machines.</p>
-                <video controls preload="metadata" poster="lg-retail-installation-poster.jpg" playsinline aria-describedby="installation-description"><source src="lg-retail-installation.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+            <div class="video-grid" role="group" aria-label="Meet Showayne and see his retail work">
+                <article class="video-box reveal">
+                    <div class="video-copy">
+                        <h3 id="intro-title">Meet Showayne: Trade Marketing in Action</h3>
+                        <p class="video-description" id="intro-description">Get to know my approach to trade marketing, from equipping sales teams with product knowledge to engaging customers through demonstrations and retail activations.</p>
+                    </div>
+                    <video controls preload="metadata" poster="intro-video-enhanced-poster.jpg" playsinline aria-labelledby="intro-title" aria-describedby="intro-description"><source src="intro-video-enhanced.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                </article>
+                <article class="video-box reveal">
+                    <div class="video-copy">
+                        <h3 id="installation-title">LG Retail Merchandising &amp; Display Installation</h3>
+                        <p class="video-description" id="installation-description">See the practical work behind the retail experience: installing point-of-purchase materials and preparing LG displays across TVs, air conditioners, refrigerators and washing machines.</p>
+                    </div>
+                    <video controls preload="metadata" poster="lg-retail-installation-poster.jpg" playsinline aria-labelledby="installation-title" aria-describedby="installation-description"><source src="lg-retail-installation.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+                </article>
             </div>
         </div>
     </section>
@@ -761,6 +779,14 @@
             var to = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { startTerm(); to.disconnect(); } }); }, { threshold: 0.4 });
             to.observe(term);
         } else { startTerm(); }
+
+        /* Keep the two showcase videos from playing over each other. */
+        var showcaseVideos = $$('.video-grid video');
+        showcaseVideos.forEach(function (video) {
+            video.addEventListener('play', function () {
+                showcaseVideos.forEach(function (other) { if (other !== video) other.pause(); });
+            });
+        });
 
         /* Gallery filters */
         $$('.filter-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.classList.contains('active') ? 'true' : 'false'); });
