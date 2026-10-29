@@ -242,6 +242,101 @@
             *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
             .js .reveal { opacity: 1; transform: none; }
         }
+
+        /* Portfolio organization; original background and media remain intact. */
+        :root { --muted: #b4bed8; }
+        .skip-link { position: fixed; top: 8px; left: 16px; z-index: 400; padding: 12px 18px; background: var(--bg-2); border: 2px solid var(--accent-3); transform: translateY(-150%); }
+        .skip-link:focus { transform: none; }
+        :focus-visible { outline: 3px solid var(--accent-3); outline-offset: 5px; }
+        .nav-inner { justify-content: space-between; gap: 20px; }
+        .logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .logo .logo-name { color: var(--text); background: none; font: 600 .85rem var(--sans); letter-spacing: 0; }
+        .nav-links { gap: 0; }
+        .nav-links a { display: block; padding: 9px 10px; font-size: .85rem; }
+        .hero { min-height: min(850px, 100svh); padding-top: 130px; }
+        .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 64px; }
+        .hero h1 { font-size: clamp(2.6rem, 5.5vw, 4.3rem); }
+        .eyebrow { font: 600 .8rem var(--sans); letter-spacing: .06em; }
+        .typed { min-height: 3.6em; }
+        .hero .cta { gap: 10px; }
+        .hero .btn { padding: 12px 18px; font-size: .9rem; }
+        .hero .chips { max-width: 580px; }
+        .chip { font-family: var(--sans); }
+        section.block { padding: 80px 0; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
+        .about-grid .kicker, .about-grid .title, .service-intro .kicker, .service-intro .title { text-align: left; }
+        .bio-copy p { color: var(--muted); margin-bottom: 18px; }
+        .text-link { display: inline-block; color: var(--accent-3); font-weight: 600; margin-top: 10px; }
+        .service-intro { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; margin-bottom: 32px; }
+        .service-intro .sub { text-align: left; margin: 0; }
+        .services-grid, .education-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+        .service-card h3, .education-grid h3 { margin: 18px 0 10px; font-size: 1.25rem; line-height: 1.3; }
+        .service-card p, .education-grid p, .service-cta p { color: var(--muted); }
+        .service-card ul { padding-left: 20px; margin-top: 22px; color: var(--muted); display: grid; gap: 8px; font-size: .93rem; }
+        .service-card li::marker { color: var(--accent-3); }
+        .service-cta { margin-top: 24px; padding: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; border: 1px solid rgba(46,230,197,.3); border-radius: 18px; background: rgba(46,230,197,.045); }
+        .service-cta > div { flex: 1 1 350px; }
+        .service-cta h3 { margin-bottom: 6px; }
+        .service-cta .business-number { flex-basis: 100%; font-size: .9rem; }
+        .education-grid .credential { color: var(--accent-3); margin-bottom: 14px; }
+        .resume-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+        .resume-card .kicker { margin: 0; }
+        .resume-card h3 { margin: 0; }
+        .resume-card .btn { margin-top: auto; padding: 12px 20px; }
+        .tech-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+        .term-body { overflow-wrap: anywhere; }
+        .contact-row { gap: 12px; }
+        .contact-row .btn { overflow-wrap: anywhere; max-width: 100%; justify-content: center; padding: 13px 20px; }
+        .impact-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .proj-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        @media (max-width: 1050px) {
+            .logo .logo-name { display: none; }
+            .hero-grid { gap: 34px; }
+            .portrait-wrap { width: min(290px, 70vw); }
+        }
+        @media (max-width: 900px) {
+            .nav-inner { justify-content: space-between; }
+            .menu-btn { display: block; }
+            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; padding: 14px 24px; background: rgba(7,11,22,.98); border-bottom: 1px solid var(--line); max-height: calc(100svh - 64px); overflow-y: auto; }
+            .nav-links.open { display: flex; flex-direction: column; }
+            .nav-links a { font-size: 1rem; padding: 12px; }
+            .logo .logo-name { display: inline; }
+            .hero { min-height: auto; padding: 120px 0 60px; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 44px; }
+            .hero-text { order: 0; }
+            .portrait-wrap { order: 1; width: min(300px, 68vw); }
+            .hero .lead, .hero .chips { margin-left: auto; margin-right: auto; }
+            .hero .cta, .hero .chips { justify-content: center; }
+            .scroll-hint { display: none; }
+            .about-grid, .service-intro { grid-template-columns: 1fr; gap: 20px; }
+            .services-grid, .education-grid { grid-template-columns: 1fr; }
+            .proj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .tech-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 520px) {
+            .container { padding: 0 20px; }
+            section.block { padding: 56px 0; }
+            .hero h1 { font-size: 2.65rem; }
+            .typed { font-size: .95rem; }
+            .hero .lead { font-size: 1rem; }
+            .float-badge.fb1 { right: -6%; }
+            .float-badge.fb2 { left: -6%; }
+            .impact-cards, .proj-grid { grid-template-columns: 1fr; }
+            .card { padding: 24px; }
+            .sub { margin-bottom: 30px; }
+            .service-cta { padding: 24px; }
+            .filter-btn { padding: 10px 14px; }
+            .contact-card { padding: 32px 20px; }
+            .contact-row .btn { width: 100%; font-size: .88rem; }
+            .timeline { padding-left: 25px; }
+            .tl-item::before { left: -25px; width: 13px; height: 13px; }
+            .timeline::before { left: 6px; }
+        }
+        @media (scripting: none) {
+            .menu-btn { display: none; }
+            .nav-inner { height: auto; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
+            .nav-links { display: flex; position: static; flex-wrap: wrap; flex-direction: row; background: transparent; border: 0; padding: 0; }
+        }
     </style>
 </head>
 <body>
@@ -250,17 +345,18 @@
     <div class="glow-blob b2" aria-hidden="true"></div>
     <div class="progress" id="progress"></div>
 
-    <nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Main navigation">
         <div class="container nav-inner">
-            <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <a class="logo" href="#home" aria-label="Showayne Anderson home"><span>SA</span><span class="logo-name">Showayne Anderson</span></a>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#tech">Tech</a></li>
-                <li><a href="#projects">Templates</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#impact">Impact</a></li>
                 <li><a href="#work">My Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Résumé</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -270,13 +366,14 @@
     <header class="hero" id="home">
         <div class="container hero-grid">
             <div class="hero-text">
-                <div class="eyebrow">&gt; hello, world. I'm</div>
+                <div class="eyebrow">Trade marketing · Retail activation · Technology</div>
                 <h1><span class="grad">Showayne Anderson</span></h1>
                 <div class="typed" id="typed" aria-live="off">Trade Marketing &amp; Promotions Specialist</div>
-                <p class="lead">A trade marketing representative in the home electronics and appliance industry, helping leading global brands like LG and Samsung boost retail sales by training sales teams and bringing products to life through in-store activations.</p>
+                <p class="lead">I help retail teams turn product knowledge into confident customer conversations. Based in Kingston, Jamaica, I bring hands-on experience with LG and Samsung to staff training, product demonstrations and in-store brand activations.</p>
                 <div class="cta">
                     <a href="#work" class="btn btn-primary">View My Work →</a>
-                    <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+                    <a href="#services" class="btn btn-ghost">Explore Services</a>
+                    <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">View Résumé ↗</a>
                 </div>
                 <div class="chips">
                     <span class="chip hl">CompTIA A+ Certified</span>
@@ -293,118 +390,32 @@
         <div class="scroll-hint" aria-hidden="true"></div>
     </header>
 
-    <!-- STATS + TECH -->
-    <section class="block" id="tech">
-        <div class="container">
-            <div class="kicker reveal">// where marketing meets technology</div>
-            <h2 class="title reveal">Field-tested. <span class="grad">Tech-minded.</span></h2>
-            <p class="sub reveal">I run campaigns on the retail floor and I'm building the technical foundation to run them smarter: tracking performance, solving problems systematically and working comfortably with technology.</p>
-
-            <div class="tech-grid">
-                <div class="terminal reveal">
-                    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">showayne@portfolio: ~/profile</span></div>
-                    <div class="term-body" id="termBody" data-text=""></div>
-                </div>
-                <div class="tech-cards">
-                    <div class="card tech-card reveal">
-                        <div class="tech-icon">A+</div>
-                        <div><h3>CompTIA A+ Certified</h3><p>Industry-recognised foundation in hardware, operating systems, networking and troubleshooting.</p></div>
-                    </div>
-                    <div class="card tech-card reveal">
-                        <div class="tech-icon">IT</div>
-                        <div><h3>Bachelor of Science in Information Technology</h3><p>Formal grounding in information technology, paired with hands-on experience on the retail floor.</p></div>
-                    </div>
-                    <div class="card tech-card reveal">
-                        <div class="tech-icon">&lt;/&gt;</div>
-                        <div><h3>Web Development</h3><p>Creates and publishes responsive website templates, with a working knowledge of HTML, CSS, JavaScript and PHP.</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stats">
-                <div class="card stat reveal"><div class="num">Sales Training</div><p>Product knowledge &amp; selling techniques</p></div>
-                <div class="card stat reveal"><div class="num">CompTIA A+</div><p>Certified IT professional</p></div>
-                <div class="card stat reveal"><div class="num">Activations</div><p>In-store brand experiences</p></div>
-                <div class="card stat reveal"><div class="num">LG &amp; Samsung</div><p>Global brands represented</p></div>
-            </div>
+    <main id="main">
+    <section class="block" id="about" aria-labelledby="about-title">
+        <div class="container about-grid">
+            <div><div class="kicker">Professional profile</div><h2 class="title" id="about-title">Marketing insight.<br><span class="grad">Practical execution.</span></h2></div>
+            <div class="bio-copy"><p>I’m Showayne Anderson, a trade marketing professional with experience in home electronics and appliances. My work connects brands, distributors, retail sales teams and customers through clear product education and engaging in-store experiences.</p>
+            <p>At LG Electronics in Jamaica, I coordinate promotional activity, train sales staff and support retail partners across multiple locations. Earlier Samsung merchandising experience shaped my approach to product presentation and consistent brand messaging.</p>
+            <p>With a Bachelor of Science in Information Technology and CompTIA A+ certification, I also bring a technical foundation to problem-solving, performance tracking and responsive web projects.</p>
+            <a class="text-link" href="#experience">Explore my experience ↓</a></div>
         </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="block" id="projects">
-        <div class="container">
-            <div class="kicker reveal">// website templates</div>
-            <h2 class="title reveal">Web <span class="grad">Templates</span></h2>
-            <p class="sub reveal">A few website templates I've created, from interactive learning pages for children to a branded storefront-style page. Open any template to see it live.</p>
-            <div class="proj-grid">
-                <div class="card proj reveal">
-                    <span class="proj-tag">Template</span>
-                    <h3>Toddler Learning Fun</h3>
-                    <p>An interactive learning website for toddlers, covering shapes, colors, numbers, animals, letters and emotions.</p>
-                    <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/toddler-learning-website/" target="_blank" rel="noopener">View template ↗</a></div>
-                </div>
-                <div class="card proj reveal">
-                    <span class="proj-tag">Template</span>
-                    <h3>Learning Adventure Zone</h3>
-                    <p>A learning-adventure website designed for six-year-olds.</p>
-                    <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/Learning-Adventure-for-six-years-old/" target="_blank" rel="noopener">View template ↗</a></div>
-                </div>
-                <div class="card proj reveal">
-                    <span class="proj-tag">Template</span>
-                    <h3>Locay Tees</h3>
-                    <p>A branded web page for Locay Tees, built around the "Rep Your Parish!" idea.</p>
-                    <div class="tags"><span class="tag">HTML</span></div>
-                    <div class="proj-links"><a href="https://showa21.github.io/LocayTees/" target="_blank" rel="noopener">View template ↗</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="block" id="skills">
-        <div class="container">
-            <div class="kicker reveal">// capabilities</div>
-            <h2 class="title reveal">Core <span class="grad">Competencies</span></h2>
-            <p class="sub reveal">The skills I bring to every campaign, from first concept to final report.</p>
-            <div class="skills-grid">
-                <div class="card reveal">
-                    <h3>Promotional Marketing</h3>
-                    <div class="tags"><span class="tag">Campaign Coordination</span><span class="tag">Event Planning &amp; Execution</span><span class="tag">Brand Activation</span><span class="tag">Promotional Strategy</span><span class="tag">Giveaway Management</span><span class="tag">Product Launches</span></div>
-                </div>
-                <div class="card reveal">
-                    <h3>Coordination &amp; Planning</h3>
-                    <div class="tags"><span class="tag">Project Management</span><span class="tag">Multi-Site Coordination</span><span class="tag">Vendor Relations</span><span class="tag">Budget Management</span><span class="tag">Timeline Development</span><span class="tag">Resource Allocation</span></div>
-                </div>
-                <div class="card reveal">
-                    <h3>Marketing Operations</h3>
-                    <div class="tags"><span class="tag">POP Materials Management</span><span class="tag">Promotional Analytics</span><span class="tag">Merchandising Strategy</span><span class="tag">Sales Enablement</span><span class="tag">Performance Tracking</span></div>
-                </div>
-                <div class="card reveal">
-                    <h3>Professional Skills</h3>
-                    <div class="tags"><span class="tag">Cross-Functional Collaboration</span><span class="tag">Stakeholder Communication</span><span class="tag">Problem Resolution</span><span class="tag">Time Management</span><span class="tag">Adaptability</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIENCE -->
     <section class="block" id="experience">
         <div class="container">
             <div class="kicker reveal">// career</div>
             <h2 class="title reveal">Professional <span class="grad">Experience</span></h2>
-            <p class="sub reveal">A career spent alongside two of the world's leading electronics brands.</p>
+            <p class="sub reveal">Trade marketing and merchandising experience supporting LG and Samsung in Jamaica.</p>
             <div class="timeline">
                 <div class="tl-item card reveal">
                     <div class="tl-head"><h3>Trade Marketing Representative</h3><span class="tl-date">Sep 2021 – Present</span></div>
                     <div class="tl-co">LG Electronics · Jamaica</div>
                     <ul>
-                        <li>Plan and execute promotional campaigns across multiple retail locations</li>
+                        <li>Coordinate LG promotional campaigns across retail partners and multiple locations</li>
                         <li>Deliver in-store events and customer activations from concept through completion</li>
                         <li>Build promotional strategies in partnership with retail managers</li>
                         <li>Manage promotional inventory and point-of-purchase (POP) materials</li>
-                        <li>Train retail sales staff on product features and active promotions</li>
+                        <li>Train retail sales staff to explain product features, customer benefits and active promotions</li>
                         <li>Align promotional activity with internal sales, marketing and brand teams</li>
                     </ul>
                 </div>
@@ -423,7 +434,6 @@
         </div>
     </section>
 
-    <!-- IMPACT -->
     <section class="block" id="impact">
         <div class="container">
             <div class="kicker reveal">// results</div>
@@ -458,16 +468,9 @@
                 <p>Sales staff value the product knowledge I share with them, and customers enjoy an engaging, informative conversation that helps them choose LG with confidence.</p>
             </div>
 
-            <ul class="impact-list">
-                <li class="reveal">Led promotional campaigns and in-store activations across multiple distributors and locations</li>
-                <li class="reveal">Trained sales staff from different distributors in product knowledge and effective selling techniques</li>
-                <li class="reveal">Delivered activations and giveaways during Black Friday and each distributor's peak seasons</li>
-                <li class="reveal">Built close partnerships with distributors, helping them grow and broaden their LG product offering</li>
-            </ul>
         </div>
     </section>
 
-    <!-- WORK -->
     <section class="block" id="work">
         <div class="container">
             <div class="kicker reveal">// portfolio</div>
@@ -504,21 +507,140 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <section class="block" id="services" aria-labelledby="services-title">
+        <div class="container">
+            <div class="service-intro reveal"><div><div class="kicker">Limitless Marketing</div><h2 class="title" id="services-title">Bring your brand<br><span class="grad">closer to customers.</span></h2></div>
+            <p class="sub">Practical marketing support for businesses that want a stronger retail presence, knowledgeable sales teams and engaging customer experiences.</p></div>
+            <div class="services-grid">
+                <article class="card service-card reveal"><span class="proj-tag">01 · Activate</span><h3>Brand &amp; Retail Activations</h3><p>Bring promotions to life with in-store experiences, product demonstrations and customer engagement.</p><ul><li>Activation planning and coordination</li><li>Promotions and giveaway support</li><li>Product demonstration sessions</li></ul></article>
+                <article class="card service-card reveal"><span class="proj-tag">02 · Equip</span><h3>Sales Team Training</h3><p>Help retail staff explain products clearly and guide shoppers with confidence.</p><ul><li>Product knowledge sessions</li><li>Feature-to-benefit communication</li><li>On-the-floor coaching</li></ul></article>
+                <article class="card service-card reveal"><span class="proj-tag">03 · Present</span><h3>Brand &amp; Digital Presence</h3><p>Give your business a consistent presentation across the retail floor and the web.</p><ul><li>Merchandising and display support</li><li>Promotional materials coordination</li><li>Responsive website templates</li></ul></article>
+            </div>
+            <div class="service-cta reveal"><div><h3>Let’s plan your next promotion.</h3><p>Share your business, goals, location and preferred timeline. We’ll discuss the support that fits.</p></div><a class="btn btn-primary" href="https://wa.me/18762847677?text=Hi%20Limitless%20Marketing%2C%20I%27d%20like%20to%20discuss%20marketing%20support." target="_blank" rel="noopener">WhatsApp Business ↗</a><p class="business-number">+1 876 284 7677</p></div>
+        </div>
+    </section>
+
+    <section class="block" id="projects">
+        <div class="container">
+            <div class="kicker reveal">Digital projects</div>
+            <h2 class="title reveal">Selected <span class="grad">Web Projects</span></h2>
+            <p class="sub reveal">A few website templates I've created, from interactive learning pages for children to a branded storefront-style page. Open any template to see it live.</p>
+            <div class="proj-grid">
+                <div class="card proj reveal">
+                    <span class="proj-tag">Template</span>
+                    <h3>Toddler Learning Fun</h3>
+                    <p>An interactive learning website for toddlers, covering shapes, colors, numbers, animals, letters and emotions.</p>
+                    <div class="tags"><span class="tag">HTML</span></div>
+                    <div class="proj-links"><a href="https://showa21.github.io/toddler-learning-website/" target="_blank" rel="noopener">View live project ↗</a></div>
+                </div>
+                <div class="card proj reveal">
+                    <span class="proj-tag">Template</span>
+                    <h3>Learning Adventure Zone</h3>
+                    <p>A learning-adventure website designed for six-year-olds.</p>
+                    <div class="tags"><span class="tag">HTML</span></div>
+                    <div class="proj-links"><a href="https://showa21.github.io/Learning-Adventure-for-six-years-old/" target="_blank" rel="noopener">View live project ↗</a></div>
+                </div>
+                <div class="card proj reveal">
+                    <span class="proj-tag">Template</span>
+                    <h3>Locay Tees</h3>
+                    <p>A branded web page for Locay Tees, built around the "Rep Your Parish!" idea.</p>
+                    <div class="tags"><span class="tag">HTML</span></div>
+                    <div class="proj-links"><a href="https://showa21.github.io/LocayTees/" target="_blank" rel="noopener">View live project ↗</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block" id="skills">
+        <div class="container">
+            <div class="kicker reveal">// capabilities</div>
+            <h2 class="title reveal">Core <span class="grad">Competencies</span></h2>
+            <p class="sub reveal">The skills I bring to every campaign, from first concept to final report.</p>
+            <div class="skills-grid">
+                <div class="card reveal">
+                    <h3>Promotional Marketing</h3>
+                    <div class="tags"><span class="tag">Campaign Coordination</span><span class="tag">Event Planning &amp; Execution</span><span class="tag">Brand Activation</span><span class="tag">Promotional Strategy</span><span class="tag">Giveaway Management</span><span class="tag">Product Launches</span></div>
+                </div>
+                <div class="card reveal">
+                    <h3>Coordination &amp; Planning</h3>
+                    <div class="tags"><span class="tag">Project Management</span><span class="tag">Multi-Site Coordination</span><span class="tag">Vendor Relations</span><span class="tag">Budget Management</span><span class="tag">Timeline Development</span><span class="tag">Resource Allocation</span></div>
+                </div>
+                <div class="card reveal">
+                    <h3>Marketing Operations</h3>
+                    <div class="tags"><span class="tag">POP Materials Management</span><span class="tag">Promotional Analytics</span><span class="tag">Merchandising Strategy</span><span class="tag">Sales Enablement</span><span class="tag">Performance Tracking</span></div>
+                </div>
+                <div class="card reveal">
+                    <h3>Professional Skills</h3>
+                    <div class="tags"><span class="tag">Cross-Functional Collaboration</span><span class="tag">Stakeholder Communication</span><span class="tag">Problem Resolution</span><span class="tag">Time Management</span><span class="tag">Adaptability</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block" id="tech">
+        <div class="container">
+            <div class="kicker reveal">Marketing meets technology</div>
+            <h2 class="title reveal">Field-tested. <span class="grad">Tech-minded.</span></h2>
+            <p class="sub reveal">I run campaigns on the retail floor and I'm building the technical foundation to run them smarter: tracking performance, solving problems systematically and working comfortably with technology.</p>
+
+            <div class="tech-grid">
+                <div class="terminal reveal">
+                    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">showayne@portfolio: ~/profile</span></div>
+                    <div class="term-body" id="termBody" data-text=""></div>
+                </div>
+                <div class="tech-cards">
+                    <div class="card tech-card reveal">
+                        <div class="tech-icon">A+</div>
+                        <div><h3>CompTIA A+ Certified</h3><p>Industry-recognised foundation in hardware, operating systems, networking and troubleshooting.</p></div>
+                    </div>
+                    <div class="card tech-card reveal">
+                        <div class="tech-icon">IT</div>
+                        <div><h3>Bachelor of Science in Information Technology</h3><p>Formal grounding in information technology, paired with hands-on experience on the retail floor.</p></div>
+                    </div>
+                    <div class="card tech-card reveal">
+                        <div class="tech-icon">&lt;/&gt;</div>
+                        <div><h3>Web Development</h3><p>Creates and publishes responsive website templates, with a working knowledge of HTML, CSS, JavaScript and PHP.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="card stat reveal"><div class="num">Sales Training</div><p>Product knowledge &amp; selling techniques</p></div>
+                <div class="card stat reveal"><div class="num">CompTIA A+</div><p>Certified IT professional</p></div>
+                <div class="card stat reveal"><div class="num">Activations</div><p>In-store brand experiences</p></div>
+                <div class="card stat reveal"><div class="num">LG &amp; Samsung</div><p>Global brands represented</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="block" id="education" aria-labelledby="education-title">
+        <div class="container">
+            <div class="kicker reveal">Education &amp; credentials</div><h2 class="title reveal" id="education-title">A foundation for <span class="grad">what’s next.</span></h2>
+            <p class="sub reveal">Formal IT education and professional certification complement practical experience in trade marketing.</p>
+            <div class="education-grid">
+                <article class="card reveal"><div class="tech-icon">IT</div><h3>Bachelor of Science</h3><p class="credential">Information Technology</p><p>Technical grounding that supports structured problem-solving, digital projects and working confidently with technology.</p></article>
+                <article class="card reveal"><div class="tech-icon">A+</div><h3>CompTIA A+</h3><p class="credential">Professional certification</p><p>A foundation in hardware, operating systems, networking and troubleshooting.</p></article>
+                <article class="card resume-card reveal"><div class="kicker">Résumé</div><h3>My experience, at a glance.</h3><p>Read my résumé for a fuller overview of my professional background and qualifications.</p><a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">View Résumé (PDF) ↗</a><a class="text-link" href="resume.pdf" download="Showayne-Anderson-Resume.pdf">Download résumé ↓</a></article>
+            </div>
+        </div>
+    </section>
+
     <section class="block" id="contact">
         <div class="container">
             <div class="contact-card reveal">
                 <div class="kicker">// let's connect</div>
-                <h2>Ready to <span class="grad">drive more sales?</span></h2>
-                <p>If you want a team that knows your products, sells with confidence and brings your brand to life in store, I'd love to hear from you.</p>
+                <h2>Let’s build your <span class="grad">next opportunity.</span></h2>
+                <p>For trade marketing opportunities, retail campaigns or Limitless Marketing services, let’s start a conversation.</p>
                 <div class="contact-row">
-                    <a href="mailto:showayne22@gmail.com" class="btn btn-primary">Email: showayne22@gmail.com</a>
-                    <a href="tel:8762847677" class="btn btn-ghost">Phone: (876) 284-7677</a>
+                    <a href="https://wa.me/18762847677" target="_blank" rel="noopener" class="btn btn-primary">WhatsApp Business ↗</a>
+                    <a href="mailto:showayne22@gmail.com" class="btn btn-ghost">Email: showayne22@gmail.com</a>
+                    <a href="tel:+18762847677" class="btn btn-ghost">Call: +1 876 284 7677</a>
                     <a href="https://linkedin.com/in/showayneanderson" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Showayne Anderson. All rights reserved.</p>
@@ -549,6 +671,15 @@
         });
         $$('#navLinks a').forEach(function (a) { a.addEventListener('click', function () { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }); });
 
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.focus();
+            }
+        });
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('nav')) { navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+        });
+
         /* Scroll progress + scroll-spy */
         var bar = $('#progress'), links = $$('#navLinks a'), sections = links.map(function (a) { return $(a.getAttribute('href')); });
         function onScroll() {
@@ -556,7 +687,7 @@
             bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
             var y = h.scrollTop + 120, cur = 0;
             sections.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; });
-            links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+            links.forEach(function (a, i) { a.classList.toggle('active', i === cur); if (i === cur) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
         }
         window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
@@ -630,11 +761,12 @@
         } else { startTerm(); }
 
         /* Gallery filters */
+        $('.filter-btn').forEach(function (b) { b.setAttribute('aria-pressed', b.classList.contains('active') ? 'true' : 'false'); });
         var shots = $$('.shot');
         $$('.filter-btn').forEach(function (b) {
             b.addEventListener('click', function () {
-                $$('.filter-btn').forEach(function (x) { x.classList.remove('active'); });
-                b.classList.add('active');
+                $$('.filter-btn').forEach(function (x) { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
+                b.classList.add('active'); b.setAttribute('aria-pressed', 'true');
                 var f = b.dataset.filter;
                 shots.forEach(function (s) { s.classList.toggle('hidden', f !== 'all' && s.dataset.cat !== f); });
             });
@@ -660,6 +792,11 @@
         lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
         document.addEventListener('keydown', function (e) {
             if (!lb.classList.contains('open')) return;
+            if (e.key === 'Tab') {
+                var buttons = $('button', lb), first = buttons[0], last = buttons[buttons.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
             if (e.key === 'Escape') closeLb(); else if (e.key === 'ArrowLeft') show(idx - 1); else if (e.key === 'ArrowRight') show(idx + 1);
         });
 
